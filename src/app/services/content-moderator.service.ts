@@ -21,13 +21,8 @@ export class ContentModeratorService {
         })
       };
 
-      let response = this.http.post(apiUrl, body, httpOptions).subscribe(data => {
-        console.log('Content Moderator Response - ', data);
-        return data;
-      }, error => {
-        console.log('Error calling content moderator - ', error);
-        throw error;
-      });
+      let response = this.http.post(apiUrl, body, httpOptions).toPromise();
+      return response;
     }
     catch (error) {
       console.log('Error calling content moderator - ', error);
