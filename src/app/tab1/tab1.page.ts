@@ -8,6 +8,7 @@ import { ContentModeratorService } from '../services/content-moderator.service';
 })
 export class Tab1Page {
   body: string;
+  pii: boolean = false;
   response: any;
 
   constructor (public contentModeratorService: ContentModeratorService) {
@@ -16,7 +17,7 @@ export class Tab1Page {
 
   async moderateContent(): Promise<any> {
     try {
-      this.response = await this.contentModeratorService.moderateText(this.body, false);
+      this.response = await this.contentModeratorService.moderateText(this.body, this.pii);
       console.log ('Response - ', this.response);
     }
     catch (error){

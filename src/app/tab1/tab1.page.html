@@ -17,6 +17,10 @@
         </ion-label>
         <ion-textarea [(ngModel)]="body" autocorrect="on" placeholder="Enter text to moderate"></ion-textarea>
       </ion-item>
+      <ion-item>
+        <ion-label>Scan for PII?</ion-label>
+        <ion-toggle [(ngModel)]="pii"></ion-toggle>
+      </ion-item>
       <ion-button (click)="moderateContent()">Moderate</ion-button>
     </ion-list>
     <ion-list *ngIf="response">
